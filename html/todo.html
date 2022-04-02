@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Rancho"/>
+    <link rel="stylesheet" href="../css/todo.css">
+</head>
+<body>
+<div class="todoForm">
+    <div class="todoHeader">
+        <label id="headerTime"></label>
+        <hr align="right">
+        <label id="taskCount">0 tasks</label>
+    </div>
+    <div class="todoBody">
+        <div class="todoBodyHeader">
+            <label class="todoBodyHeaderText">To do list</label>
+            <div class="todoBodyHeaderMenu">
+                <div class="todoBodyHeaderButton"></div>
+                <div class="todoBodyHeaderDropDown">
+                    <label class="todoBodyHeaderDropDownItem">Completed</label>
+                    <hr>
+                    <label class="todoBodyHeaderDropDownItem">In progress</label>
+                    <hr>
+                    <label class="todoBodyHeaderDropDownItem">Removed</label>
+                </div>
+            </div>
+        </div>
+        <div id="todoBodyTasks" class="todoBodyTasks">
+        </div>
+    </div>
+    <div class="todoFooter">
+        <textarea placeholder="new ToDo" id="todoFooterText" style="resize: none"></textarea>
+        <button id="buttonAddToDo"></button>
+    </div>
+</div>
+</body>
+<script src="../js/todoHeader.js"></script>
+<script src="../js/todoBody.js"></script>
+</html>
