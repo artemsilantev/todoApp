@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     background: white;
-    width: 350px;
+    width: 380px;
     height: 500px;
     border-radius: 10px;
 }
@@ -71,14 +71,14 @@ body {
     content: "";
     left: 0;
     bottom: 0;
-    width: 139px;
+    width: 175px;
     border-bottom: 3px solid #3B3482;
 }
 
 .todoBodyHeaderText {
     color: #3B3482;
     font-size: 30px;
-    margin-right: 35px;
+    width: 150px;
 }
 
 
@@ -106,7 +106,6 @@ body {
 }
 
 .todoBodyHeaderDropDown hr {
-    background: white;
     border: 1px solid #3B3482;
 }
 
@@ -114,10 +113,12 @@ body {
     display: none;
     font-size: 17px;
     width: 100px;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
     background: #ccc5fc;
     box-shadow: 0 4px 6px #7069B6, inset -6px -6px 12px #FFFFFF;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 .todoBodyHeaderMenu {
@@ -137,7 +138,7 @@ body {
 }
 
 .todoBodyHeaderMenu:hover .todoBodyHeaderDropDown {
-    display: block;
+    display: flex;
 }
 
 .todoBodyTasks {
@@ -153,34 +154,39 @@ body {
     margin: 10px;
     height: 30px;
 }
-
-.todoBodyTaskInProgress {
-}
-
-.todoBodyTaskCircle {
+.todoBodyTaskCircle{
     margin-left: 2px;
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    border: 2px solid #5C5959;
-
+    border: 2px solid
 }
 
 .todoBodyTaskHeader {
     margin-left: 5px;
     font-size: 17px;
     text-align: left;
-    color: #5C5959;
     width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.todoBodyTaskCross:before {
+/*in progress*/
+.todoBodyTaskInProgress .todoBodyTaskCircle {
+    border-color: #5C5959;
+    cursor: pointer;
+}
+
+.todoBodyTaskInProgress .todoBodyTaskHeader {
+    color: #5C5959;
+}
+
+.todoBodyTaskInProgress .todoBodyTaskCross:before {
     content: '\2716';
 }
-.todoBodyTaskCross {
+
+.todoBodyTaskInProgress .todoBodyTaskCross {
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -193,7 +199,6 @@ body {
     color: #FAC6FF;
     margin-right: 5px;
 }
-
 
 .todoBodyTaskInProgress:hover {
 
@@ -213,6 +218,60 @@ body {
 .todoBodyTaskInProgress:hover .todoBodyTaskHeader {
    color: white;
 }
+
+/*completed*/
+.todoBodyTaskCompleted .todoBodyTaskCircle {
+    border-color: #5C5959;
+    background: #EAE9FF;
+    display: flex;
+    padding: 0 0 0 0;
+    align-items: center;
+    font-size: 25px;
+    color: #FAC6FF;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskHeader {
+    color: #ABABAB;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskCircle:before {
+    content: '\2713';
+    padding-left: 1px;
+    padding-bottom: 10px;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskCircle {
+   border-color: #302795;
+    color: #302795;
+}
+
+/*removed*/
+.todoBodyTaskDeleted .todoBodyTaskCircle {
+    border-color: #5C5959;
+    background: #EAE9FF;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    font-size: 18px;
+    color: #FAC6FF;
+}
+
+.todoBodyTaskDeleted .todoBodyTaskHeader {
+    color: #ABABAB;
+    text-decoration: line-through;
+    text-decoration-color: #302795;
+    text-decoration-thickness: 2px;
+}
+
+.todoBodyTaskDeleted .todoBodyTaskCircle:before {
+    content: '\2716';
+}
+
+.todoBodyTaskDeleted .todoBodyTaskCircle {
+    border-color: #302795;
+    color: #302795;
+}
+
 .todoFooter{
     width: auto;
     display: flex;
@@ -247,7 +306,8 @@ content: '+';
     display: none;
     font-size: 15px;
     text-align-all: center;
-    width: 260px;
+    width: 280px;
     height: 30px;
+    margin-right: 10px;
 }
 
