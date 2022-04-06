@@ -1,0 +1,313 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #eaeaea;
+}
+
+body {
+    font-family: "Rancho", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todoForm {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 380px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.todoHeader {
+    height: 50px;
+    border-radius: 10px 10px 50px 100px;
+    width: auto;
+    background: #9288FF;
+    box-shadow: 0 4px 4px #5D57A1;
+    text-align: right;
+    padding: 5px 40px 60px 5px;
+}
+
+.todoHeader hr {
+    background: white;
+    border: 2px solid white;
+    width: 50%;
+}
+
+#headerTime, #taskCount {
+    color: white;
+}
+
+#headerTime {
+    font-size: 39px;
+}
+
+#taskCount {
+    font-size: 32px;
+}
+
+.todoBody {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.todoBodyHeader {
+    height: 50px;
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+.todoBodyHeader:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 175px;
+    border-bottom: 3px solid #3B3482;
+}
+
+.todoBodyHeaderText {
+    color: #3B3482;
+    font-size: 30px;
+    width: 150px;
+}
+
+
+.todoBodyHeaderButton:before {
+    content: '...';
+}
+
+.todoBodyHeaderButton {
+    padding: 0 0 14px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5px;
+    width: 25px;
+    font-size: 34px;
+    color: #3B3482;
+    border-radius: 5px;
+    background: linear-gradient(#bab2fd, #F6F5FF);
+}
+
+.todoBodyHeaderMenu:hover .todoBodyHeaderButton {
+    height: 15px;
+    background: #bab2fd;
+}
+
+.todoBodyHeaderDropDown hr {
+    border: 1px solid #3B3482;
+}
+
+.todoBodyHeaderDropDown {
+    display: none;
+    font-size: 17px;
+    width: 100px;
+    flex-direction: column;
+    align-items: center;
+    background: #ccc5fc;
+    box-shadow: 0 4px 6px #7069B6, inset -6px -6px 12px #FFFFFF;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.todoBodyHeaderMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    z-index: 1000;
+}
+
+.todoBodyHeaderDropDownItem {
+    cursor: pointer;
+}
+
+.todoBodyHeaderDropDownItem:hover {
+    color: #E893F0;
+}
+
+.todoBodyHeaderMenu:hover .todoBodyHeaderDropDown {
+    display: flex;
+}
+
+.todoBodyTasks {
+    width: auto;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.todoBodyTask {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: 10px;
+    height: 30px;
+}
+.todoBodyTaskCircle{
+    margin-left: 2px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid
+}
+
+.todoBodyTaskHeader {
+    margin-left: 5px;
+    font-size: 17px;
+    text-align: left;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*in progress*/
+.todoBodyTaskInProgress .todoBodyTaskCircle {
+    border-color: #5C5959;
+    cursor: pointer;
+}
+
+.todoBodyTaskInProgress .todoBodyTaskHeader {
+    color: #5C5959;
+}
+
+.todoBodyTaskInProgress .todoBodyTaskCross:before {
+    content: '\2716';
+}
+
+.todoBodyTaskInProgress .todoBodyTaskCross {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #FAC6FF;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: #FAC6FF;
+    margin-right: 5px;
+}
+
+.todoBodyTaskInProgress:hover {
+
+    background: #9288FF;
+    border-radius: 6px ;
+    box-shadow: 1px 4px 8px #544CA8;
+}
+
+.todoBodyTaskInProgress:hover .todoBodyTaskCross {
+   display: flex;
+}
+
+.todoBodyTaskInProgress:hover .todoBodyTaskCircle {
+    border-color: white;
+}
+
+.todoBodyTaskInProgress:hover .todoBodyTaskHeader {
+   color: white;
+}
+
+/*completed*/
+.todoBodyTaskCompleted .todoBodyTaskCircle {
+    border-color: #5C5959;
+    background: #EAE9FF;
+    display: flex;
+    padding: 0 0 0 0;
+    align-items: center;
+    font-size: 25px;
+    color: #FAC6FF;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskHeader {
+    color: #ABABAB;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskCircle:before {
+    content: '\2713';
+    padding-left: 1px;
+    padding-bottom: 10px;
+}
+
+.todoBodyTaskCompleted .todoBodyTaskCircle {
+   border-color: #302795;
+    color: #302795;
+}
+
+/*removed*/
+.todoBodyTaskDeleted .todoBodyTaskCircle {
+    border-color: #5C5959;
+    background: #EAE9FF;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    font-size: 18px;
+    color: #FAC6FF;
+}
+
+.todoBodyTaskDeleted .todoBodyTaskHeader {
+    color: #ABABAB;
+    text-decoration: line-through;
+    text-decoration-color: #302795;
+    text-decoration-thickness: 2px;
+}
+
+.todoBodyTaskDeleted .todoBodyTaskCircle:before {
+    content: '\2716';
+}
+
+.todoBodyTaskDeleted .todoBodyTaskCircle {
+    border-color: #302795;
+    color: #302795;
+}
+
+.todoFooter{
+    width: auto;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#buttonAddToDo:before{
+content: '+';
+}
+
+#buttonAddToDo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border: 0;
+    font-size: 50px;
+    color: #302795;
+    margin-right: 5px;
+    background: #e0deff;
+    box-shadow: 1px 3px 4px #6F68B6;
+    padding: 0 0 5px 0;
+}
+
+#todoFooterText{
+    display: none;
+    font-size: 15px;
+    text-align-all: center;
+    width: 280px;
+    height: 30px;
+    margin-right: 10px;
+}
+
